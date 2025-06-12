@@ -56,7 +56,7 @@ namespace Cw11_1
                                 {
                                     for (int j = ind - word.Length+1; j <= ind; j++)
                                     {
-                                        indexs.Add(j);                                    
+                                        indexs.Add(j);
                                     }
                                 }
                             }
@@ -66,6 +66,11 @@ namespace Cw11_1
             }
             int n = 0;
             int c = 0;
+
+            Console.WriteLine(indexs.Count);
+            Console.WriteLine(text.Length);
+
+            c = 0;
             File.Delete("1984.txt");
             using (StreamWriter swaga = new StreamWriter("1984.txt"))
             {
@@ -73,18 +78,21 @@ namespace Cw11_1
                 {
                     foreach (char simv in text)
                     {
-                        Console.WriteLine($"I:{indexs[n]}  |  C:{c}");
+                        Console.WriteLine($"I:{n}  |  C:{c}");
                         
-                        if (c == indexs[n])
+                        if (n != 15)
                         {
-                            swaga.Write('*');
-                            n++;
-                            c++;
-                        }
-                        else
-                        {
-                            swaga.Write(simv);
-                            c++;
+                            if (c == indexs[n])
+                            {
+                                swaga.Write('*');
+                                n++;
+                                c++;
+                            }
+                            else
+                            {
+                                swaga.Write(simv);
+                                c++;
+                            }
                         }
                     }
                 }
