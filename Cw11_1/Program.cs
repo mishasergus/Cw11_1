@@ -80,7 +80,7 @@ namespace Cw11_1
                     {
                         Console.WriteLine($"I:{n}  |  C:{c}");
                         
-                        if (n != 15)
+                        if (n != indexs.Count)
                         {
                             if (c == indexs[n])
                             {
